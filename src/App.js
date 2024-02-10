@@ -78,8 +78,15 @@ export default function App(){
     const getTodos = async () => {
         try{
             const response = await fetch('/api/todos')
+            /*
+            look at app-server and see the /api/todos routes
+            go to the routes identify the get request that goes to api/todos
+            review the controllers and see that the controllers respond with 
+            an array of todos that are incomplete
+            */
             const foundTodos = await response.json()
-            setTodos(foundTodos.reverse())
+            // format to a js array or object
+            setTodos(foundTodos.reverse()) //update state and causes diff algo to run
             console.log('hey')
             const responseTwo = await fetch('/api/todos/completed')
             const foundCompletedTodos = await responseTwo.json()

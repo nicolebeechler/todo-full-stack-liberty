@@ -99,8 +99,15 @@ function App() {
   const getTodos = async () => {
     try {
       const response = await fetch('/api/todos');
+      /*
+      look at app-server and see the /api/todos routes
+      go to the routes identify the get request that goes to api/todos
+      review the controllers and see that the controllers respond with 
+      an array of todos that are incomplete
+      */
       const foundTodos = await response.json();
-      setTodos(foundTodos.reverse());
+      // format to a js array or object
+      setTodos(foundTodos.reverse()); //update state and causes diff algo to run
       console.log('hey');
       const responseTwo = await fetch('/api/todos/completed');
       const foundCompletedTodos = await responseTwo.json();
@@ -711,4 +718,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.5f79c6bcb1af4eb149e6f628e4f1a2e1.js.map
+//# sourceMappingURL=App.dcae571c931e50a10f575c955d128bc5.js.map
