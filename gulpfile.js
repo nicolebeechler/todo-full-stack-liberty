@@ -53,7 +53,17 @@ gulp.task('default', (cb) => {
 });
 
 
-
+gulp.task('submit', (cb) => {
+	exec('git add -A && git commit -m \'Made a minor change\' && git push origin main', (err, success) => {
+		if(err){
+			console.error(err)
+			cb(err)
+		} else {
+			console.log(success)
+			cb(err)
+		}
+	})
+})
 
 
 // Explanation for Students ---- This is for the development build
